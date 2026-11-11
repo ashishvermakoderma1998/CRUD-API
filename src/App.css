@@ -42,6 +42,7 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 
 }
 
@@ -50,6 +51,17 @@ button:hover {
     background-color: #212f3d;
     border-radius: 0.6rem;
     margin: 3.2rem auto;
+    gap: 1.5rem;
+    
+    form{
+        display: flex;
+    }
+
+            input {
+    color: red;
+}
+      
+
 }
 
 .section-post {

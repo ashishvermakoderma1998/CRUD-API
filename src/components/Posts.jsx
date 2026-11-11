@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { deletePost, getPost } from './../api/PostApi';
+import { FORM } from './form';
+
 
 export const Posts =()=>{
 
@@ -23,20 +25,28 @@ const handleDeletePost = async (id) => {
 
         try {
     const res = await deletePost(id);
-    if(res.status === 200){
+    if(res.status == 200){
         const newUpdatedPosts = data.filter((curPost) => {
             return curPost.id !== id;
         });
 
         setData(newUpdatedPosts);
+    }else {
+        console.log("failed to delete the post:", res.status)
     }
         } catch (error) {
             console.log(error)
         }
 };
 
-  return(  
-    <section className='section-post'>
+  return( 
+    <>
+    <section>
+        <FORM data = {data} setData={setData}/>
+
+    </section>
+    
+        <section className='section-post'>
         <ol>
             {
                 data.map((curElem)=> {
@@ -54,6 +64,9 @@ const handleDeletePost = async (id) => {
             }
         </ol>
     </section>
+    
+    </>
+
 
 
   );
