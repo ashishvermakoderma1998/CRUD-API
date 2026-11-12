@@ -35,7 +35,7 @@ export const FORM = ({data, setData}) => {
     return (
         <form className="section-form" onSubmit={handleFormSubmit}>
             <div>
-                <h1>As</h1>
+                <h1>Ash</h1>
                 <label htmlFor="title"></label>
                 <input
                 type="text"
