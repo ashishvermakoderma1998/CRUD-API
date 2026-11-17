@@ -8,6 +8,7 @@ import { FORM } from './form';
 export const Posts =()=>{
 
     const [data, setData]= useState([]); 
+    const [updateDataApi, setUpdateDataApi] = useState({});
 
       const getPostData = async()=>{
     const res = await getPost();
@@ -18,7 +19,7 @@ export const Posts =()=>{
   useEffect(()=>{
     getPostData();
     handleDeletePost();
-  },[])
+  },[]) 
 
 //   function to delete post
 const handleDeletePost = async (id) => {
@@ -39,10 +40,15 @@ const handleDeletePost = async (id) => {
         }
 };
 
+// handleUpdatePost(curElem)
+
+const handleUpdatePost = (curElem) => setUpdateDataApi(curElem);
+
+
   return( 
     <>
     <section>
-        <FORM data = {data} setData={setData}/>
+        <FORM data = {data} setData={setData} updateDataApi={updateDataApi} setUpdateDataApi={setUpdateDataApi}/>
 
     </section>
     
@@ -55,7 +61,7 @@ const handleDeletePost = async (id) => {
                         <li key={id}>
                             <p>Title:{title}</p>
                             <p>Body:{body}</p>
-                            <button>Edit</button>
+                            <button onClick={() => handleUpdatePost(curElem)} >Edit</button>
                             <button className='btn-delete' onClick={() => handleDeletePost(id)}>Delete</button>
 
                         </li>
