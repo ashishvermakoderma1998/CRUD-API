@@ -76,7 +76,7 @@ export const FORM = ({ data, setData, updateDataApi, setUpdateDataApi }) => {
   return (
     <form className="section-form" onSubmit={handleFormSubmit}>
       <div>
-        <h1>Ash</h1>
+        <h1>Ashi</h1>
         <label htmlFor="title"></label>
         <input
           type="text"
